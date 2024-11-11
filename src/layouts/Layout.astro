@@ -1,4 +1,6 @@
 ---
+import Navbar from '../components/Navbar';
+
 interface Props {
 	title: string;
 }
@@ -16,35 +18,32 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
-		<slot />
+	<body class="relative">
+		<header class="h-[--nav-height] p-4 relative w-full ">
+			<Navbar client:idle/>
+		</header>
+		<main class="max-w-screen-xl grid mx-auto mt-[--nav-height]">
+			<slot />
+		</main>
 	</body>
 </html>
+
 <style is:global>
+
+	@tailwind base;
+
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		--primary: 158 70 35;
+		--bg: 255 236 221;
+		--fg: 35 33 33;
+		--fg-muted: 35, 33, 33, 0.5;
+
+		--nav-height: 6rem;
 	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+
+	@layer base {
+		body {
+			@apply bg-bg text-fg;
+		}
 	}
 </style>
