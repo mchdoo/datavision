@@ -4,7 +4,13 @@ import {
   DotsSixVertical as DragIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import { signal } from "@preact/signals-react";
-import { AnimatePresence, motion, type Variants } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  type Variants,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { useState } from "react";
 import MovingCircles from "./MovingCircles";
@@ -79,15 +85,16 @@ export default function Navbar() {
       className="z-[100] hover:shadow-xl transition-colors bg-white/70 hover:bg-white border border-white backdrop-blur-md fixed top-[calc(--nav-height/2)] rounded inline-flex items-center gap-2"
     >
       <DropdownMenu.Root open={open} onOpenChange={setOpen}>
-        <HouseSimple />
-        <span className="select-none mx-4">DataVision</span>
-        <DropdownMenu.Trigger asChild>
-          <Translate className="p-1 box-content rounded drop-shadow cursor-pointer pointer-events-auto" />
+        {/* <HouseSimple /> */}
+        <span className="select-none mr-8 opacity-50">DataVision</span>
+        <DropdownMenu.Trigger className="p-2 box-content rounded inline-flex outline-none">
+          <Translate className="cursor-pointer pointer-events-auto" />
+          <p className="text-xs">({currentLocale.value})</p>
         </DropdownMenu.Trigger>
         <AnimatePresence>
           {open && (
             <DropdownMenu.Portal forceMount>
-              <DropdownMenu.Content>
+              <DropdownMenu.Content asChild>
                 <motion.div
                   variants={menu}
                   initial="hidden"

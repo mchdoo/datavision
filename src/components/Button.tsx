@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 
 const buttonVariants = cva(
-  ["py-1.5 px-4 text-lg rounded inline-flex items-center gap-2"],
+  ["py-1.5 px-4 text-lg rounded inline-flex items-center gap-2 cursor-pointer"],
   {
     variants: {
       variant: {
@@ -30,6 +30,7 @@ const Button = forwardRef<HTMLButtonElement, Props>(
     return (
       <motion.button
         whileHover={{ y: -3 }}
+        whileTap={{ scale: 0.9 }}
         onClick={() => props.onClick}
         className={twMerge(buttonVariants({ variant, className }))}
         ref={ref}
