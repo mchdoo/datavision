@@ -19,19 +19,19 @@ import type { loadRenderers } from 'astro/virtual-modules/container.js';
 		>Soluciones personalizadas en análisis predictivo para optimizar y hacer crecer tu negocio.</p>
 		
 		<Button client:load className="motion-preset-slide-up-md motion-delay-300 mt-8" arrow>Hacé crecer tu negocio</Button>
-		<Button client:load variant="ghost" className="motion-preset-slide-up-md motion-delay-500 mt-8">¿Quiénes somos?</Button>
+		<Button client:load variant="ghost" className="motion-preset-slide-up-md motion-delay-500 mt-4 md:mt-8">¿Quiénes somos?</Button>
 	</section>
 
-	<fragment class="relative bg-white rounded-xl my-36 max-w-screen-md mx-auto grid p-24 gap-12">
+	<fragment class="prose-headings:text-primary prose-headings:font-mono relative bg-white rounded-xl my-36 max-w-screen-md mx-auto grid p-12 md:p-24 gap-12">
 		<img src="/ell2.png" alt="ell1" class="absolute top-0 scale-y-75  origin-top opacity-30 rotate-180 motion-preset-pulse-sm">
 		<motion.section client:load viewport={{margin: '0px 0px -200px 0px'}} whileInView={{ opacity: 1 }} initial={{ opacity: 0.3 }} className="inline-flex relative max-w-screen-sm ">
-			<div class="prose prose-lg font-sans prose-h4:text-2xl prose-p:text-fg-muted  ">
+			<div class="prose prose-lg prose-p:text-fg-muted  ">
 				<h4>Introducción</h4>
 				<p >En DataVisión, trabajamos en conjunto con empresas y PyMEs para anticipar riesgos, optimizar estrategias y tomar decisiones fundamentadas en datos. Ofrecemos soluciones personalizadas y un acompañamiento cercano, adaptándonos a las necesidades específicas de cada negocio.</p>
 			</div>
 		</motion.section>
 		<motion.section client:load viewport={{margin: '0px 0px -200px 0px'}} whileInView={{ opacity: 1 }} initial={{ opacity: 0.3 }} className="inline-flex relative max-w-screen-sm mx-auto">
-			<div class="prose prose-lg font-sans prose-h4:text-2xl prose-p:text-fg-muted  ">
+			<div class="prose prose-lg prose-p:text-fg-muted  ">
 				<h4>Nuestro enfoque</h4>
 				<p >En DataVisión, trabajamos en conjunto con empresas y PyMEs para anticipar riesgos, optimizar estrategias y tomar decisiones fundamentadas en datos. Ofrecemos soluciones personalizadas y un acompañamiento cercano, adaptándonos a las necesidades específicas de cada negocio.</p>
 			</div>

@@ -2,7 +2,7 @@ import * as motion from "framer-motion/client";
 
 export default function MovingCircles() {
   return (
-    <div className="z-10 motion-preset-fade-lg fixed h-screen  w-1/3 left-1/2 -top-0 scale-[200%] origin-top -translate-x-1/2 overflow-visible bulr-3xl">
+    <div className="z-10 motion-preset-fade-lg fixed h-screen w-[400px]  left-1/2 -top-0 scale-[200%] origin-top -translate-x-1/2 overflow-visible bulr-3xl">
       <motion.img
         src="ell1.png"
         className=" "
