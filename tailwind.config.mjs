@@ -13,9 +13,12 @@ export default {
         DEFAULT: "0.7rem",
       },
       boxShadow: {
-        xl: "0 5px 20px -10px rgba(0, 0, 0, 0.1)",
+        xl: "0 5px 20px -10px rgba(0, 0, 0, 0.15)",
+      },
+      fontFamily: {
+        rubik: ["Rubik", "sans-serif"],
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-motion"), require("@tailwindcss/typography")],
 };
