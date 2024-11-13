@@ -27,7 +27,7 @@ const { title } = Astro.props;
 
 				<Navbar client:idle/>
 			</header>
-			<main class="overflow-x-hidden -z-50 max-w-screen-xl px-6 md:p-0 grid mx-auto mt-[6]">
+			<main class="overflow-x-hidden -z-50 max-w-screen-xl px-6 lg:p-0 mb-[--nav-height] grid mx-auto mt-[6]">
 				<slot />
 			</main>
 		</body>
@@ -42,7 +42,7 @@ const { title } = Astro.props;
 		@font-face {
 			font-family: 'Rubik', sans-serif;
 			src: url('/fonts/Rubik_variable.ttf') format('ttf');
-			font-weight: normal;
+			font-weight: 200 900;
 			font-style: normal;
 		}
 
@@ -56,7 +56,9 @@ const { title } = Astro.props;
 
 	@layer base {
 		body {
-			@apply bg-bg text-fg font-rubik;
+			@apply bg-bg text-fg;
+			font-family: 'Rubik', sans-serif !important;
 		}
+
 	}
 </style>

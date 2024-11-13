@@ -82,7 +82,7 @@ export default function Navbar() {
       // initial="initial"s
       animate="visible"
       id={"navbar"}
-      className="z-[100] hover:shadow-xl transition-colors bg-white/70 hover:bg-white border border-white backdrop-blur-md fixed top-[calc(--nav-height/2)] rounded inline-flex items-center gap-2"
+      className="z-[100] hover:shadow-xl transition-colors bg-white/70 hover:bg-white border border-white backdrop-blur-md fixed top-[calc(--nav-height/2)] rounded-full inline-flex items-center gap-2"
     >
       <DropdownMenu.Root open={open} onOpenChange={setOpen}>
         {/* <HouseSimple /> */}

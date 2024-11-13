@@ -1,16 +1,15 @@
 ---
 import { Button } from '@/components/Button.tsx';
 import Layout from '../layouts/Layout.astro';
-import MovingCircles from '@/components/MovingCircles.tsx';
 
 import * as motion from 'framer-motion/client';
-import type { loadRenderers } from 'astro/virtual-modules/container.js';
+import ServiceCards from '@/components/serviceCard';
 ---
 
 <Layout title="DataVision Insights">
 
 	<iframe class="hidden md:flex  -z-50 size-[380px]  mb-4  scale-120 mx-auto " allowtransparency="true" src="https://app.endlesstools.io/embed/642677a2-7916-43f3-84bd-7ef9f8a0711b" title="Endless Tools Editor" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; web-share" referrerpolicy="strict-origin-when-cross-origin" ></iframe>
-	<section class="max-w-screen-md mx-auto [&>*]:motion-preset-slide-up-md">
+	<section class="max-w-screen-md mx-auto [&>*]:motion-preset-slide-up-md mt-10 md:mt-0">
 
 		<h1 class="text-4xl font-medium mb-2 ">Transformamos datos en desiciones</h1>
 		<p
@@ -30,12 +29,12 @@ import type { loadRenderers } from 'astro/virtual-modules/container.js';
 				<p >En DataVisión, trabajamos en conjunto con empresas y PyMEs para anticipar riesgos, optimizar estrategias y tomar decisiones fundamentadas en datos. Ofrecemos soluciones personalizadas y un acompañamiento cercano, adaptándonos a las necesidades específicas de cada negocio.</p>
 			</div>
 		</motion.section>
-		<motion.section client:load viewport={{margin: '0px 0px -200px 0px'}} whileInView={{ opacity: 1 }} initial={{ opacity: 0.3 }} className="inline-flex relative max-w-screen-sm mx-auto">
-			<div class="prose prose-lg prose-p:text-fg-muted  ">
-				<h4>Nuestro enfoque</h4>
-				<p >En DataVisión, trabajamos en conjunto con empresas y PyMEs para anticipar riesgos, optimizar estrategias y tomar decisiones fundamentadas en datos. Ofrecemos soluciones personalizadas y un acompañamiento cercano, adaptándonos a las necesidades específicas de cada negocio.</p>
-			</div>
-		</motion.section>
 	</fragment>
+
+	<section  class="mx-auto max-w-screen-lg">
+		<h4 class="text-3xl text-center mb-10 font-medium">Nuestro Enfoque</h4>
+		
+		<ServiceCards  client:visible  />
+		</section>
 
 </Layout>
