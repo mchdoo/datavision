@@ -10,7 +10,7 @@ export default function ServiceCards() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-4 relative">
       {services.map((service, i) => (
-        <div>
+        <div key={service.name}>
           <motion.div
             layoutId={`service-${i}`}
             onClick={() => setSelectedService(i)}
@@ -31,7 +31,7 @@ export default function ServiceCards() {
                 src={`/graphics/0${i + 1}.png`}
                 width={200}
                 height={200}
-                className="absolute -bottom-12 right-2 grayscale group-hover:-translate-y-5 group-hover:grayscale-0 transition-all"
+                className="opacity-50 -z-10 absolute -bottom-12 right-2 grayscale group-hover:-translate-y-5 group-hover:grayscale-0 transition-all"
                 alt="graphic"
               />
             </div>
@@ -59,7 +59,7 @@ export default function ServiceCards() {
                     <img
                       src={`/graphics/0${i + 1}.png`}
                       width={350}
-                      className="aspect-auto absolute right-6 top-14 motion-preset-slide-up-md motion-delay-300"
+                      className="aspect-auto absolute right-4 top-14 motion-preset-slide-up-md motion-delay-300"
                       alt="graphic"
                     />
                   </div>
