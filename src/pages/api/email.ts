@@ -32,7 +32,7 @@ export const POST: APIRoute = async ({ request }) => {
 
   console.log("data", formData);
 
-  const { data, error } = await resend.emails.send({
+  const { error } = await resend.emails.send({
     from: "Contact Form Submission <info@datavisioninsights.com>",
     to: ["sebastianvonbergen@gmail.com", "pedromachadofulcheri@gmail.com"],
     cc: [formData.email],

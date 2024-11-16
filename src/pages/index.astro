@@ -62,7 +62,7 @@ import ContactForm from '@/components/ContactForm';
 	
 	<fragment class="prose-headings:text-primary prose-headings:font-mono relative bg-white rounded-xl my-20 md:my-20 max-w-screen-md mx-auto grid p-12 md:p-24 gap-12">
 		<img src="/ell2.png" alt="ell1" class="pointer-events-none absolute top-0 scale-y-75  origin-top opacity-30 rotate-180 motion-preset-pulse-sm">
-		<motion.section client:load viewport={{margin: '0px 0px -100px 0px'}} whileInView={{ opacity: 1 }} initial={{ opacity: 0.3 }} className="inline-flex relative max-w-screen-sm ">
+		<motion.section client:visible viewport={{margin: '0px 0px -300px 0px'}} whileInView={{ opacity: 1, y:0 }} initial={{ y: 10, opacity: 0.3 }} className="inline-flex relative max-w-screen-sm ">
 			<div class="prose prose-lg prose-p:text-fg-muted  ">
 				<h4>Introducción</h4>
 				<p >En DataVisión, trabajamos en conjunto con empresas y PyMEs para anticipar riesgos, optimizar estrategias y tomar decisiones fundamentadas en datos. Ofrecemos soluciones personalizadas y un acompañamiento cercano, adaptándonos a las necesidades específicas de cada negocio.</p>
@@ -76,13 +76,13 @@ import ContactForm from '@/components/ContactForm';
 		<ServiceCards  client:visible  />
 		</section>
 
-	<section  class="mx-auto max-w-screen-lg mt-24">
+	<!-- <section  class="mx-auto max-w-screen-lg mt-24">
 		<h4 class="text-3xl text-center mb-10 font-medium">Sobre nosotros</h4>
 		
 		
-		</section>
+		</section> -->
 
-	<section  class="mx-auto max-w-screen-lg mt-24">
+	<section  class="md:mx-auto max-w-screen-lg mt-24">
 		<h4 class="text-5xl text-center mb-10 font-medium">Contacto</h4>
 
 

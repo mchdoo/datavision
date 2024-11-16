@@ -65,11 +65,15 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={submit}
-      className="grid grid-cols-2 gap-6 bg-white/60 border border-white p-24 rounded-2xl w-full"
+      className="grid grid-cols-2 gap-3 md:gap-6 bg-white/60 border border-white p-6 md:p-12 rounded-2xl w-full"
     >
       {formFields.map((field) => (
         <label
-          className={cn("flex flex-col gap-1", field.wide && "col-span-2")}
+          key={field.name}
+          className={cn(
+            "flex flex-col col-span-2 gap-1",
+            !field.wide && "md:col-span-1"
+          )}
         >
           <span className="text-sm">{field.label}</span>
           <span className="text-xs text-fg-muted">{field.description}</span>

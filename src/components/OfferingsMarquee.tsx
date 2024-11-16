@@ -30,7 +30,8 @@ export default function OfferingsMarquee() {
       <Marquee
         gradient
         gradientColor="#faebdd"
-        className="text-lg text-center text-fg-muted pointer-events-none  mb-10 absolute mx-auto w-screen left-0  mt-24 gap-4"
+        gradientWidth={50}
+        className="text-sm md:text-lg text-center text-fg-muted pointer-events-none  md:mb-10 absolute mx-auto w-screen left-0  mt-12 md:mt-24 gap-4"
         autoFill
       >
         <p className="inline-flex gap-4">

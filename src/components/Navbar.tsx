@@ -1,19 +1,8 @@
-import {
-  HouseSimple,
-  Translate,
-  DotsSixVertical as DragIcon,
-} from "@phosphor-icons/react/dist/ssr";
+import { Translate } from "@phosphor-icons/react/dist/ssr";
 import { signal } from "@preact/signals-react";
-import {
-  AnimatePresence,
-  motion,
-  type Variants,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { useState } from "react";
-import MovingCircles from "./MovingCircles";
 
 export const currentLocale = signal("es");
 
@@ -102,7 +91,7 @@ export default function Navbar() {
                   exit="hidden"
                   className=" overflow-hidden rounded bg-white/70 backdrop-blur-md border border-white p-2 grid grid-cols-2 gap-2"
                 >
-                  {locales.map((locale, i) => (
+                  {locales.map((locale) => (
                     <DropdownMenu.Item asChild>
                       <motion.div
                         key={locale.value}

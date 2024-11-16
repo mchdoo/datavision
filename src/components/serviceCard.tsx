@@ -1,6 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { services, type Service } from "@/data/services";
-import { signal, useSignal } from "@preact/signals-react";
+import { services } from "@/data/services";
 import { useState } from "react";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 

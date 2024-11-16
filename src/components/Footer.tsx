@@ -4,7 +4,7 @@ export const Footer = () => {
       <img
         src="/ell2.png"
         alt="ell1"
-        className=" absolute -bottom-16 origin-center opacity-50 animate-pulse hue-rotate-60 -scale-y-100"
+        className=" absolute -bottom-16 origin-center opacity-50 animate-pulse  -scale-y-100"
       />
 
       <img className="h-24" src="/paton.png" alt="DataVision Insights Logo" />
