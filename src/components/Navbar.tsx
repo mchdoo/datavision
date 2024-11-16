@@ -75,9 +75,8 @@ export default function Navbar() {
       style={{
         left: "50%",
         x: "-50%",
-        padding: "0.5rem 1rem",
+        padding: "0.2rem 1rem",
       }}
-      whileHover={{ padding: "0.7rem 1.5rem" }}
       variants={nav}
       // initial="initial"s
       animate="visible"

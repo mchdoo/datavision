@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function MovingCircles() {
   return (
-    <div className="pointer-events-none motion-preset-fade-lg fixed h-screen w-[400px] overflow-visible left-1/2 -top-0 scale-[200%] origin-top -translate-x-1/2 bulr-3xl">
+    <div className="pointer-events-none motion-preset-fade-lg  fixed h-screen w-[400px] overflow-visible left-1/2 -top-0 scale-[200%] origin-top -translate-x-1/2 bulr-3xl">
       <motion.img
         src="ell1.png"
         className=" "

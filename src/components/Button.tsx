@@ -5,7 +5,9 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 
 const buttonVariants = cva(
-  ["py-1.5 px-4 text-lg rounded inline-flex items-center gap-2 cursor-pointer"],
+  [
+    "py-1.5 px-4 text-lg rounded relative min-h-12 w-fit inline-flex items-center gap-2 cursor-pointer justify-center",
+  ],
   {
     variants: {
       variant: {

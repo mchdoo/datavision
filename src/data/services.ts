@@ -1,6 +1,6 @@
 export type Service = {
   name: string;
-  description: string;
+  description?: string;
 };
 
 export const services: Service[] = [

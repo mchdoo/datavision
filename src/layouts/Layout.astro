@@ -1,6 +1,7 @@
 ---
 import MovingCircles from '@/components/MovingCircles';
 import Navbar from '../components/Navbar';
+import { Footer } from '@/components/Footer';
 
 interface Props {
 	title: string;
@@ -30,6 +31,7 @@ const { title } = Astro.props;
 			<main class="overflow-x-hidden -z-50 max-w-screen-xl px-6 lg:p-0 mb-[--nav-height] grid mx-auto mt-[6]">
 				<slot />
 			</main>
+			<Footer/>
 		</body>
 </html>
 
