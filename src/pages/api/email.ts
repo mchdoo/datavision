@@ -1,3 +1,5 @@
+export const prerender = false;
+
 import type { APIRoute } from "astro";
 import { Resend } from "resend";
 
@@ -33,8 +35,8 @@ export const POST: APIRoute = async ({ request }) => {
   console.log("data", formData);
 
   const { error } = await resend.emails.send({
-    from: "Contact Form Submission <info@datavisioninsights.com>",
-    to: ["sebastianvonbergen@gmail.com", "pedromachadofulcheri@gmail.com"],
+    from: "DataVision Insights Contact Form Submission <info@datavisioninsights.com>",
+    to: ["sebastianvonbergen@gmail.com"],
     cc: [formData.email],
     subject: "Contact Form Submission",
     html: `

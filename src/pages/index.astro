@@ -5,6 +5,8 @@ import * as motion from 'framer-motion/client';
 import ServiceCards from '@/components/ServiceCard';
 import OfferingsMarquee from '@/components/OfferingsMarquee';
 import ContactForm from '@/components/ContactForm';
+import { BeamDemo } from '@/components/BeamDemo';
+import { HyperText } from '@/components/HyperText';
 
 ---
 
@@ -12,7 +14,7 @@ import ContactForm from '@/components/ContactForm';
 
 	<!-- <iframe class="hidden md:flex  -z-50 size-[380px]  mb-4  scale-120 mx-auto " allowtransparency="true" src="https://app.endlesstools.io/embed/642677a2-7916-43f3-84bd-7ef9f8a0711b" title="Endless Tools Editor" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; web-share" referrerpolicy="strict-origin-when-cross-origin" ></iframe> -->
 	<section class="max-w-screen-md mx-auto [&>*]:motion-preset-slide-up-md  ">
-		
+			<BeamDemo client:load />
 		<!-- <div class="white-gradient relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg">
 			
 			<OrbitingCircles
@@ -53,14 +55,14 @@ import ContactForm from '@/components/ContactForm';
 		>Soluciones personalizadas en análisis predictivo para optimizar y hacer crecer tu negocio.</p>
 
 		
-		<Button client:load className="motion-preset-slide-up-md motion-delay-300 mt-8" arrow>Hacé crecer tu negocio</Button>
-		<Button client:load variant="ghost" className="motion-preset-slide-up-md motion-delay-500 mt-4 md:mt-8">¿Quiénes somos?</Button>
+		<a href="#contact"><Button client:load className="motion-preset-slide-up-md motion-delay-300 mt-8" arrow>Hacé crecer tu negocio</Button></a>
+		<a href="#intro"><Button client:load variant="ghost" className="motion-preset-slide-up-md motion-delay-500 mt-4 md:mt-8">¿Quiénes somos?</Button></a>
 	</section>
 	
 	<OfferingsMarquee client:only="react" />
 
 	
-	<fragment class="prose-headings:text-primary prose-headings:font-mono relative bg-white rounded-xl my-20 md:my-20 max-w-screen-md mx-auto grid p-12 md:p-24 gap-12">
+	<fragment id="intro" class="prose-headings:text-primary prose-headings:font-mono relative bg-white rounded-xl my-20 md:my-20 max-w-screen-md mx-auto grid p-12 md:p-24 gap-12">
 		<img src="/ell2.png" alt="ell1" class="pointer-events-none absolute top-0 scale-y-75  origin-top opacity-30 rotate-180 motion-preset-pulse-sm">
 		<motion.section client:visible viewport={{margin: '0px 0px -300px 0px'}} whileInView={{ opacity: 1, y:0 }} initial={{ y: 10, opacity: 0.3 }} className="inline-flex relative max-w-screen-sm ">
 			<div class="prose prose-lg prose-p:text-fg-muted  ">
@@ -71,7 +73,8 @@ import ContactForm from '@/components/ContactForm';
 	</fragment>
 
 	<section  class="mx-auto max-w-screen-lg">
-		<h4 class="text-3xl text-center mb-10 font-medium">Nuestro Enfoque</h4>
+				<h4 class="text-5xl text-center mb-10 font-medium"><HyperText className='mx-auto' client:visible text="Our Focus" /></h4>
+
 		
 		<ServiceCards  client:visible  />
 		</section>
@@ -82,8 +85,9 @@ import ContactForm from '@/components/ContactForm';
 		
 		</section> -->
 
-	<section  class="md:mx-auto max-w-screen-lg mt-24">
-		<h4 class="text-5xl text-center mb-10 font-medium">Contacto</h4>
+	<section id="contact"  class="md:mx-auto max-w-screen-lg mt-24">
+		<h4 class="text-5xl text-center mb-10 font-medium"><HyperText className='mx-auto' client:visible text="Contact" /></h4>
+		
 
 
 		<ContactForm client:load/>

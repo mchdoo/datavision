@@ -39,6 +39,12 @@ const { title } = Astro.props;
 
 	@tailwind base;
 
+	*, html {
+			scroll-behavior: smooth !important;
+			scroll-margin: var(--nav-height);
+
+		}
+
 	:root {
 
 		@font-face {
@@ -54,6 +60,8 @@ const { title } = Astro.props;
 		--fg-muted: 35, 33, 33, 0.5;
 
 		--nav-height: 6rem;
+
+		
 	}
 
 	@layer base {

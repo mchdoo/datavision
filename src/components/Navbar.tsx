@@ -74,7 +74,10 @@ export default function Navbar() {
     >
       <DropdownMenu.Root open={open} onOpenChange={setOpen}>
         {/* <HouseSimple /> */}
-        <span className="select-none mr-8 opacity-50">DataVision</span>
+        <span className="select-none mr-8 opacity-50 inline-flex items-center gap-2">
+          <img src="/favicon.svg" alt="DataVision" className="size-[16px]" />
+          DataVision{" "}
+        </span>
         <DropdownMenu.Trigger className="p-2 box-content rounded inline-flex outline-none">
           <Translate className="cursor-pointer pointer-events-auto" />
           <p className="text-xs">({currentLocale.value})</p>

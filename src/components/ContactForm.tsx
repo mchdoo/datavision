@@ -2,37 +2,28 @@ import { cn } from "@/lib/utils";
 import { Button } from "./Button";
 import React, { useState } from "react";
 import type { FormEvent } from "react";
+import { Asterisk } from "@phosphor-icons/react/dist/ssr";
 
 export default function ContactForm() {
   const [responseMessage, setResponseMessage] = useState("");
-
-  async function submit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-
-    const formData = new FormData(e.target as HTMLFormElement);
-    const res = await fetch("/api/email", {
-      method: "POST",
-      body: formData,
-    });
-    const data = await res.json();
-    if (data.message) {
-      setResponseMessage(data.message);
-    }
-  }
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const formFields = [
     {
       name: "name",
+      required: true,
       label: "Name",
       placeholder: "Your name",
     },
     {
       name: "surname",
+      required: true,
       label: "Surname",
       placeholder: "Your surname",
     },
     {
       name: "email",
+      required: true,
       label: "Email",
       wide: true,
       placeholder: "Your email",
@@ -40,11 +31,13 @@ export default function ContactForm() {
     {
       name: "phone",
       label: "Phone",
-      placeholder: "Your phone number",
+      description: "Full phone number, including country code",
+      placeholder: "+54 11 2345-6789",
     },
     {
       name: "company",
       label: "Company",
+      description: "Current or past",
       placeholder: "Acme Inc.",
     },
     {
@@ -62,6 +55,40 @@ export default function ContactForm() {
     },
   ];
 
+  const validateForm = (formData: FormData) => {
+    const newErrors: { [key: string]: string } = {};
+    formFields.forEach((field) => {
+      if (field.required && !formData.get(field.name)) {
+        newErrors[field.name] = `${field.label} is required.`;
+      }
+    });
+    return newErrors;
+  };
+
+  async function submit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    const formData = new FormData(e.target as HTMLFormElement);
+    const validationErrors = validateForm(formData);
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    setErrors({}); // Clear errors if validation passes
+
+    const res = await fetch("/api/email", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await res.json();
+    if (data.message) {
+      setResponseMessage(data.message);
+    }
+  }
+
   return (
     <form
       onSubmit={submit}
@@ -70,31 +97,60 @@ export default function ContactForm() {
       {formFields.map((field) => (
         <label
           key={field.name}
+          aria-required={field.required}
           className={cn(
             "flex flex-col col-span-2 gap-1",
             !field.wide && "md:col-span-1"
           )}
         >
-          <span className="text-sm">{field.label}</span>
-          <span className="text-xs text-fg-muted">{field.description}</span>
+          <span className="text-sm inline-flex items-center">
+            {field.label}{" "}
+            {field.required && (
+              <Asterisk size={14} className="text-red-500 ml-2" />
+            )}
+            {errors[field.name] && (
+              <span className="text-xs text-red-500">{errors[field.name]}</span>
+            )}
+          </span>
+          {field.description && (
+            <span className="text-xs text-fg-muted mb-1">
+              {field.description}
+            </span>
+          )}
           <input
             name={field.name}
-            className="p-3 rounded font-mono"
+            className={`p-3 rounded font-mono ${
+              errors[field.name] ? "border-red-500" : ""
+            }`}
             placeholder={field.placeholder}
           />
         </label>
       ))}
       <label className="flex flex-col gap-1 col-span-2">
-        <span className="text-sm">Mensaje</span>
+        <span className="text-sm">Message</span>
         <textarea
           name="message"
-          className="p-3 rounded font-mono"
-          placeholder="Mensaje"
+          className={`p-3 rounded font-mono ${
+            errors["message"] ? "border-red-500" : ""
+          }`}
+          placeholder="Your message"
         />
+        {errors["message"] && (
+          <span className="text-xs text-red-500">{errors["message"]}</span>
+        )}
       </label>
 
-      <Button className="self-right w-full col-span-2" type="submit">
-        Contactanos
+      <span className="inline-flex items-center text-red-500 text-xs">
+        Required
+        <Asterisk size={14} className=" ml-2" />
+      </span>
+
+      <Button
+        disabled={responseMessage ? true : false}
+        className="self-right w-full col-span-2 mt-4"
+        type="submit"
+      >
+        {responseMessage ? "Submitted succesfully!" : "Contact Us"}
       </Button>
     </form>
   );
