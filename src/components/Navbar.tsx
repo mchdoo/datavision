@@ -79,7 +79,7 @@ export default function Navbar() {
       // initial="initial"s
       animate="visible"
       id={"navbar"}
-      className="z-[100] hover:shadow-xl transition-colors   backdrop-blur-md fixed top-[calc(--nav-height / 2)]"
+      className="z-[100] hover:shadow-xl transition-colors fixed top-[calc(--nav-height / 2)]"
     >
       <Dock
         direction="middle"

@@ -72,7 +72,10 @@ export function BeamDemo({ className }: { className?: string }) {
           </Circle>
         </div>
         <div className="flex flex-col justify-center">
-          <Circle ref={div7Ref}>
+          <Circle
+            ref={div7Ref}
+            className="motion-scale-out-150 motion-delay-2000"
+          >
             <Icons.output />
           </Circle>
         </div>

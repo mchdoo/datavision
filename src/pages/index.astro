@@ -8,6 +8,7 @@ import ContactForm from '@/components/ContactForm';
 import { BeamDemo } from '@/components/BeamDemo';
 import { HyperText } from '@/components/HyperText';
 import TyperComponent from '@/components/TyperComponent';
+import { CaretRight } from '@phosphor-icons/react/dist/ssr/CaretRight';
 
 
 
@@ -16,8 +17,8 @@ import TyperComponent from '@/components/TyperComponent';
 <Layout title="DataVision Insights">
 
 	<!-- <iframe class="hidden md:flex  -z-50 size-[380px]  mb-4  scale-120 mx-auto " allowtransparency="true" src="https://app.endlesstools.io/embed/642677a2-7916-43f3-84bd-7ef9f8a0711b" title="Endless Tools Editor" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; web-share" referrerpolicy="strict-origin-when-cross-origin" ></iframe> -->
-	<section class="max-w-screen-md mx-auto w-full [&>*]:motion-preset-slide-up-md  ">
-			<BeamDemo client:load />
+	<section class="white-gradient  max-w-screen-md mx-auto w-full [&>*]:motion-preset-slide-up-md  ">
+			<BeamDemo className="white-background" client:load />
 		<!-- <div class="white-gradient relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg">
 			
 			<OrbitingCircles
@@ -61,7 +62,7 @@ import TyperComponent from '@/components/TyperComponent';
 			</div>
 
 		
-		<a href="#contact"><Button client:load className="motion-preset-slide-up-md motion-delay-300 mt-8 typewriter" arrow>Hacé crecer tu negocio</Button></a>
+		<a href="#contact"><Button client:load className="motion-preset-slide-up-md motion-delay-300 mt-8 typewriter" >Hacé crecer tu negocio <CaretRight className="" weight="bold" /></Button></a>
 		<a href="#intro"><Button client:load variant="ghost" className="motion-preset-slide-up-md motion-delay-500 mt-4 md:mt-8">¿Quiénes somos?</Button></a>
 	</section>
 	
@@ -79,7 +80,7 @@ import TyperComponent from '@/components/TyperComponent';
 	</fragment>
 
 	<section  class="mx-auto max-w-screen-lg" id="focus">
-				<h4 class="text-5xl text-center mb-10 font-medium"><HyperText className='mx-auto' client:visible text="Nuestro Enfoque" /></h4>
+				<h4 class="text-5xl text-center mb-10 font-medium"><HyperText className='mx-auto' client:visible text="Enfoque" /></h4>
 
 		
 		<ServiceCards  client:visible  />
@@ -105,6 +106,6 @@ import TyperComponent from '@/components/TyperComponent';
 
 <style>
 .white-gradient {
-		background-image: radial-gradient(ellipse at center, white 0%, transparent 70%);
+		background-image: radial-gradient(ellipse at center, rgba(255,255,255, 0.5) 0%, rgba(255, 134, 128, 0.0) 50%,transparent 70%);
 }
 </style>

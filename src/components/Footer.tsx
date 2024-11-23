@@ -24,9 +24,9 @@ export const Footer = () => {
       />
 
       <img className="h-24" src="/paton.png" alt="DataVision Insights Logo" />
-      <p className="text-fg-muted">
-        Copyright {new Date().getFullYear()} DataVision Insights. All rights
-        reserved.
+      <p className="text-fg-muted text-center">
+        Copyright {new Date().getFullYear()} DataVision Insights. <br />
+        All rights reserved.
       </p>
     </footer>
   );
