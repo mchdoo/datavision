@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "./Button";
 import React, { useState } from "react";
 import type { FormEvent } from "react";
-import { Asterisk } from "@phosphor-icons/react/dist/ssr";
+import { Asterisk, CaretRight } from "@phosphor-icons/react/dist/ssr";
 
 export default function ContactForm() {
   const [responseMessage, setResponseMessage] = useState("");
@@ -12,44 +12,44 @@ export default function ContactForm() {
     {
       name: "name",
       required: true,
-      label: "Name",
-      placeholder: "Your name",
+      label: "Nombre",
+      placeholder: "Juana",
     },
     {
       name: "surname",
       required: true,
-      label: "Surname",
-      placeholder: "Your surname",
+      label: "Apellido",
+      placeholder: "García",
     },
     {
       name: "email",
       required: true,
       label: "Email",
       wide: true,
-      placeholder: "Your email",
+      placeholder: "juanagarcia@gmail.com",
     },
     {
       name: "phone",
-      label: "Phone",
-      description: "Full phone number, including country code",
+      label: "Telefono",
+      description: "Número telefónico completo, incluyendo código de pais",
       placeholder: "+54 11 2345-6789",
     },
     {
       name: "company",
-      label: "Company",
-      description: "Current or past",
+      label: "Empresa",
+      description: "Actual o pasada",
       placeholder: "Acme Inc.",
     },
     {
       name: "linkedin",
-      label: "LinkedIn Profile URL",
+      label: "Perfil de LinkedIn",
       wide: true,
       placeholder: "https://www.linkedin.com/in/username/",
     },
     {
       name: "location",
-      label: "Location",
-      description: "Where you're currently based",
+      label: "Ubicación",
+      description: "Cuál es tu ubicación actual (Ciudad, País)",
       wide: true,
       placeholder: "Madrid, Spain",
     },
@@ -103,17 +103,19 @@ export default function ContactForm() {
             !field.wide && "md:col-span-1"
           )}
         >
-          <span className="text-sm inline-flex items-center">
+          <span className="ml-1  inline-flex items-center">
             {field.label}{" "}
             {field.required && (
               <Asterisk size={14} className="text-red-500 ml-2" />
             )}
             {errors[field.name] && (
-              <span className="text-xs text-red-500">{errors[field.name]}</span>
+              <span className="ml-1 text-xs text-red-500">
+                {errors[field.name]}
+              </span>
             )}
           </span>
           {field.description && (
-            <span className="text-xs text-fg-muted mb-1">
+            <span className="ml-1 text-xs text-fg-muted mb-1">
               {field.description}
             </span>
           )}
@@ -127,22 +129,22 @@ export default function ContactForm() {
         </label>
       ))}
       <label className="flex flex-col gap-1 col-span-2">
-        <span className="text-sm">Message</span>
+        <span className="ml-1">Mensaje</span>
         <textarea
           name="message"
           className={`p-3 rounded font-mono ${
             errors["message"] ? "border-red-500" : ""
           }`}
-          placeholder="Your message"
+          placeholder="Contanos sobre tu proyecto y como podemos ayudarte a hacerlo crecer."
         />
         {errors["message"] && (
           <span className="text-xs text-red-500">{errors["message"]}</span>
         )}
       </label>
 
-      <span className="inline-flex items-center text-red-500 text-xs">
-        Required
-        <Asterisk size={14} className=" ml-2" />
+      <span className="inline-flex items-center text-red-500 text-xs ml-auto col-span-2">
+        Campos requeridos marcados con
+        <Asterisk size={14} className=" ml-1" />
       </span>
 
       <Button
@@ -150,7 +152,8 @@ export default function ContactForm() {
         className="self-right w-full col-span-2 mt-4"
         type="submit"
       >
-        {responseMessage ? "Submitted succesfully!" : "Contact Us"}
+        {responseMessage ? "Mensaje enviado!" : "Contactános"}
+        {responseMessage ? null : <CaretRight className="" weight="bold" />}
       </Button>
     </form>
   );

@@ -36,7 +36,7 @@ export default function ServiceCards() {
             </div>
           </motion.div>
 
-          <AnimatePresence>
+          <AnimatePresence mode="sync">
             {selectedService == i && (
               <motion.div
                 layoutRoot

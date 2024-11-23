@@ -11,7 +11,8 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-primary text-bg",
+        primary:
+          "bg-gradient-to-t from-primary to-amber-700   ring-1 transition-shadow hover:shadow-inner hover:shadow-amber-600  ring-amber-800 text-bg",
         ghost: "text-primary bg-transparent",
       },
     },

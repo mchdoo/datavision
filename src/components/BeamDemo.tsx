@@ -113,8 +113,8 @@ const Icons = {
     // <img src="/paton.png" className="scale-[180%] motion-preset-pulse-sm" />
     <HyperText className="line-clamp-1" duration={15000} text="DataVision" />
   ),
-  input1: () => <Sparkle />,
+  input1: () => <Database />,
   input2: () => <UsersThree />,
-  input3: () => <Database />,
+  input3: () => <Sparkle />,
   output: () => <MoneyWavy />,
 };

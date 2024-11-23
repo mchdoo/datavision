@@ -7,13 +7,16 @@ import OfferingsMarquee from '@/components/OfferingsMarquee';
 import ContactForm from '@/components/ContactForm';
 import { BeamDemo } from '@/components/BeamDemo';
 import { HyperText } from '@/components/HyperText';
+import TyperComponent from '@/components/TyperComponent';
+
+
 
 ---
 
 <Layout title="DataVision Insights">
 
 	<!-- <iframe class="hidden md:flex  -z-50 size-[380px]  mb-4  scale-120 mx-auto " allowtransparency="true" src="https://app.endlesstools.io/embed/642677a2-7916-43f3-84bd-7ef9f8a0711b" title="Endless Tools Editor" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; web-share" referrerpolicy="strict-origin-when-cross-origin" ></iframe> -->
-	<section class="max-w-screen-md mx-auto [&>*]:motion-preset-slide-up-md  ">
+	<section class="max-w-screen-md mx-auto w-full [&>*]:motion-preset-slide-up-md  ">
 			<BeamDemo client:load />
 		<!-- <div class="white-gradient relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg">
 			
@@ -49,13 +52,16 @@ import { HyperText } from '@/components/HyperText';
 	</div> -->
 		
 		<h1 class="text-4xl font-medium mb-2 mt-14">Transformamos datos en desiciones</h1>
-		<p
-		id="typewriter"
-		class="mt-3 text-2xl font-light text-fg-muted motion-delay-100"
-		>Soluciones personalizadas en análisis predictivo para optimizar y hacer crecer tu negocio.</p>
+			<!-- <div
+			id="typedtext"
+			class="mt-3 text-xl font-light text-fg-muted"
+			>Soluciones personalizadas en análisis predictivo para optimizar y hacer crecer tu negocio.</div> -->
+			<div class="mt-3 text-fg-muted">
+				<TyperComponent client:only="react"/>
+			</div>
 
 		
-		<a href="#contact"><Button client:load className="motion-preset-slide-up-md motion-delay-300 mt-8" arrow>Hacé crecer tu negocio</Button></a>
+		<a href="#contact"><Button client:load className="motion-preset-slide-up-md motion-delay-300 mt-8 typewriter" arrow>Hacé crecer tu negocio</Button></a>
 		<a href="#intro"><Button client:load variant="ghost" className="motion-preset-slide-up-md motion-delay-500 mt-4 md:mt-8">¿Quiénes somos?</Button></a>
 	</section>
 	
@@ -72,8 +78,8 @@ import { HyperText } from '@/components/HyperText';
 		</motion.section>
 	</fragment>
 
-	<section  class="mx-auto max-w-screen-lg">
-				<h4 class="text-5xl text-center mb-10 font-medium"><HyperText className='mx-auto' client:visible text="Our Focus" /></h4>
+	<section  class="mx-auto max-w-screen-lg" id="focus">
+				<h4 class="text-5xl text-center mb-10 font-medium"><HyperText className='mx-auto' client:visible text="Nuestro Enfoque" /></h4>
 
 		
 		<ServiceCards  client:visible  />
@@ -86,7 +92,7 @@ import { HyperText } from '@/components/HyperText';
 		</section> -->
 
 	<section id="contact"  class="md:mx-auto max-w-screen-lg mt-24">
-		<h4 class="text-5xl text-center mb-10 font-medium"><HyperText className='mx-auto' client:visible text="Contact" /></h4>
+		<h4 class="text-5xl text-center mb-10 font-medium"><HyperText className='mx-auto' client:visible text="Contacto" /></h4>
 		
 
 
