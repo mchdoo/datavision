@@ -1,6 +1,7 @@
 import {
   Chats,
   DiceOne,
+  Megaphone,
   Stack,
   Translate,
 } from "@phosphor-icons/react/dist/ssr";
@@ -86,18 +87,23 @@ export default function Navbar() {
         className="border-none  border mt-0 bg-white/70 backdrop-blur-md shadow"
       >
         <DockIcon tooltip="Intro">
-          <a href="#intro">
+          <a href="/#intro">
             <DiceOne />
           </a>
         </DockIcon>
         <DockIcon tooltip="Servicios">
-          <a href="#focus">
+          <a href="/#focus">
             <Stack />
           </a>
         </DockIcon>
         <DockIcon tooltip="Contacto">
-          <a href="#contact">
+          <a href="/#contact">
             <Chats />
+          </a>
+        </DockIcon>
+        <DockIcon tooltip="Blog">
+          <a href="/blog">
+            <Megaphone />
           </a>
         </DockIcon>
       </Dock>

@@ -28,7 +28,7 @@ const { title } = Astro.props;
 
 				<Navbar client:idle/>
 			</header>
-			<main class="overflow-x-hidden -z-50 max-w-screen-xl px-6 lg:p-0 mb-[--nav-height] grid mx-auto mt-[6]">
+			<main class="min-h-screen overflow-x-hidden -z-50 max-w-screen-xl px-6 lg:p-0 mb-[--nav-height] flex flex-col mx-auto mt-[6]">
 				<slot />
 			</main>
 			<Footer/>

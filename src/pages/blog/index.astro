@@ -1,0 +1,41 @@
+---
+import { HyperText } from "@/components/HyperText";
+import Layout from "@/layouts/Layout.astro";
+import { sanityClient } from "sanity:client";
+
+const allPosts: Post[] = await sanityClient.fetch(`*[_type == "post"]{
+    title,
+    "category": category->name,
+    "slug": slug.current,
+    image{"url": asset->url},
+    publishedAt,
+    description,
+    tags[]
+}`)
+type Post = {
+    title: string;
+    category: string;
+    slug: string;
+    image: { url: string };
+    publishedAt: string;
+    description: string;
+    tags: string[]
+}
+---
+
+<Layout title="Blog | DataVision Insights">
+    <h1 class="mx-auto text-5xl text-center font-medium mb-10"><HyperText className='mx-auto' client:visible text="Blog" /></h1>
+    <h2 class="motion-preset-slide-up motion-delay-1000 p-4 text-3xl border-t border-primary/20 pt-10 mt-2">Últimas novedades de DataVision Insights</h2> 
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 motion-preset-slide-up-sm motion-delay-1500">
+        {allPosts.map((post: Post)=>(
+                <a class="hover:bg-white/30 transition-colors flex flex-col p-4 rounded" href={"blog/" + post.slug} >
+                    <img src={post.image.url} height={300} width={600} alt={post.title} class="aspect-video object-cover rounded mb-6">
+                    <p class=" w-fit text-primary p-1 px-2 text-xs mb-2 uppercase bg-primary/20">{post.category}</p>
+                    <h3 class="text-2xl font-medium mb-2">{post.title}</h3>
+                    <p class="text-fg-muted">{post.description}</p>
+                    <p class="text-sm mt-4">Tags: <span class="text-primary">{post.tags.join(", ")}</span></p>
+                </a>
+        ))}
+    </div>
+</Layout>

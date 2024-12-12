@@ -1,7 +1,7 @@
 import { Envelope, PhoneCall as Phone } from "@phosphor-icons/react/dist/ssr";
 export const Footer = () => {
   return (
-    <footer className="h-24 flex flex-col items-center justify-center mb-12 relative">
+    <footer className="h-24 flex flex-col items-center justify-center mb-12 relative text-sm">
       {/* <div className=" min-h-96 bg-white/50 border-y border-white w-full flex flex-col items-center justify-center ">
         <h2 className="text-4xl">Contact</h2>
         <p className="text-fg-muted text-sm mb-4 mt-2">
