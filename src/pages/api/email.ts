@@ -36,7 +36,7 @@ export const POST: APIRoute = async ({ request }) => {
 
   const { error } = await resend.emails.send({
     from: "DataVision Insights Contact Form Submission <info@datavisioninsights.com>",
-    to: ["sebastianvonbergen@datavisioninsights.com"],
+    to: ["svb.datavision@gmail.com", "sebastianvonbergen@gmail.com"],
     cc: [formData.email],
     subject: "Contact Form Submission",
     html: `
@@ -95,6 +95,6 @@ export const POST: APIRoute = async ({ request }) => {
     JSON.stringify({
       message: "Success!",
     }),
-    { status: 200 }
+    { status: 200 },
   );
 };
