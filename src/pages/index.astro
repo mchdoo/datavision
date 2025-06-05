@@ -1,0 +1,111 @@
+---
+import { Button } from '@/components/Button.tsx';
+import Layout from '../layouts/Layout.astro';
+import * as motion from 'framer-motion/client';
+import ServiceCards from '@/components/ServiceCard';
+import OfferingsMarquee from '@/components/OfferingsMarquee';
+import ContactForm from '@/components/ContactForm';
+import { BeamDemo } from '@/components/BeamDemo';
+import { HyperText } from '@/components/HyperText';
+import TyperComponent from '@/components/TyperComponent';
+import { CaretRight } from '@phosphor-icons/react/dist/ssr/CaretRight';
+
+
+
+---
+
+<Layout title="DataVision Insights">
+
+	<!-- <iframe class="hidden md:flex  -z-50 size-[380px]  mb-4  scale-120 mx-auto " allowtransparency="true" src="https://app.endlesstools.io/embed/642677a2-7916-43f3-84bd-7ef9f8a0711b" title="Endless Tools Editor" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; web-share" referrerpolicy="strict-origin-when-cross-origin" ></iframe> -->
+	<section class="white-gradient  max-w-screen-md mx-auto w-full [&>*]:motion-preset-slide-up-md  ">
+			<BeamDemo className="white-background" client:load />
+		<!-- <div class="white-gradient relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg">
+			
+			<OrbitingCircles
+			className="size-[50px] border-none text-4xl bg-transparent"
+			radius={60}
+			duration={10}
+			client:load
+			reverse
+			>
+			 📊
+		</OrbitingCircles>
+
+			<OrbitingCircles
+			className="size-[50px] border-none bg-transparent text-4xl"
+			radius={100}
+			duration={12}
+			client:load
+			reverse
+			>
+			🐕
+		</OrbitingCircles>
+
+			<OrbitingCircles
+			className="size-[50px] border-none bg-transparent text-5xl"
+			radius={160}
+			duration={5}
+			client:load
+			reverse
+			>
+			💬
+		</OrbitingCircles>
+	</div> -->
+		
+		<h1 class="text-4xl font-medium mb-2 mt-14">Transformamos datos en desiciones</h1>
+			<!-- <div
+			id="typedtext"
+			class="mt-3 text-xl font-light text-fg-muted"
+			>Soluciones personalizadas en análisis predictivo para optimizar y hacer crecer tu negocio.</div> -->
+			<div class="mt-3 text-fg-muted">
+				<TyperComponent client:only="react"/>
+			</div>
+
+		
+		<a href="#contact"><Button client:load className="motion-preset-slide-up-md motion-delay-300 mt-8 typewriter" >Hacé crecer tu negocio <CaretRight className="" weight="bold" /></Button></a>
+		<a href="#intro"><Button client:load variant="ghost" className="motion-preset-slide-up-md motion-delay-500 mt-4 md:mt-8">¿Quiénes somos?</Button></a>
+	</section>
+	
+	<OfferingsMarquee client:only="react" />
+
+	
+	<fragment id="intro" class="prose-headings:text-primary prose-headings:font-mono relative bg-white rounded-xl my-20 md:my-20 max-w-screen-md mx-auto grid p-12 md:p-24 gap-12">
+		<img src="/ell2.png" alt="ell1" class="pointer-events-none absolute top-0 scale-y-75  origin-top opacity-30 rotate-180 motion-preset-pulse-sm">
+		<motion.section client:visible viewport={{margin: '0px 0px -300px 0px'}} whileInView={{ opacity: 1, y:0 }} initial={{ y: 10, opacity: 0.3 }} className="inline-flex relative max-w-screen-sm ">
+			<div class="prose prose-lg prose-p:text-fg-muted  ">
+				<h4>Introducción</h4>
+				<p >En DataVisión, trabajamos en conjunto con empresas y PyMEs para anticipar riesgos, optimizar estrategias y tomar decisiones fundamentadas en datos. Ofrecemos soluciones personalizadas y un acompañamiento cercano, adaptándonos a las necesidades específicas de cada negocio.</p>
+			</div>
+		</motion.section>
+	</fragment>
+
+	<section  class="mx-auto max-w-screen-lg" id="focus">
+				<h4 class="text-5xl text-center mb-10 font-medium"><HyperText className='mx-auto' client:visible text="Enfoque" /></h4>
+
+		
+		<ServiceCards  client:visible  />
+		</section>
+
+	<!-- <section  class="mx-auto max-w-screen-lg mt-24">
+		<h4 class="text-3xl text-center mb-10 font-medium">Sobre nosotros</h4>
+		
+		
+		</section> -->
+
+	<section id="contact"  class="md:mx-auto max-w-screen-lg mt-24">
+		<h4 class="text-5xl text-center mb-10 font-medium"><HyperText className='mx-auto' client:visible text="Contacto" /></h4>
+		
+
+
+		<ContactForm client:load/>
+		
+		
+		</section>
+
+</Layout>
+
+<style>
+.white-gradient {
+		background-image: radial-gradient(ellipse at center, rgba(255,255,255, 0.5) 0%, rgba(255, 134, 128, 0.0) 50%,transparent 70%);
+}
+</style>

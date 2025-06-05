@@ -1,0 +1,89 @@
+---
+// export const prerender = false;
+
+export async function getStaticPaths() {
+    const paths = await sanityClient.fetch(groq`
+    *[_type == "post"]{
+    "slug": slug.current
+    }`);
+
+    return paths.map((post: { slug: string }) => ({
+        params: { slug: post.slug },
+    }))
+}
+
+
+
+import Layout from "@/layouts/Layout.astro";
+import { sanityClient } from "sanity:client";
+import groq  from "groq";
+import { PortableText } from "astro-portabletext";
+
+interface Post {
+  title: string;
+  description: string;
+  image: { url: string };
+  category: string;
+  author: { name: string; image: { url: string }; position: string };
+  body: any;
+  tags: string[];
+  publishedAt: string;
+}
+
+const {slug} = Astro.params;
+
+const post: Post = await sanityClient.fetch(groq`
+*[_type == "post" && slug.current == $slug][0]{
+    title,
+    description,
+    image{"url": asset->url},
+    "category":category->name,
+    author->{name, image{"url": asset->url}, position},
+    body,
+    tags[],
+    publishedAt
+}
+`, { slug });
+---
+
+<Layout title={post.title + " | DataVision Insights"}>
+    <p class="text-sm bg-primary/20 w-fit mx-auto px-2 py-1 font-mono text-center uppercase text-primary mt-10 font-medium mb-2 rounded shadow-xl">{post.category}</p>
+    <h1 class="text-5xl text-center text-primary font-medium mb-12">{post.title}</h1>
+   
+    
+    <div class="flex flex-col gap-8 md:gap-20 md:flex-row max-w-screen-md mx-auto items-start mb-12">
+        <div class="inline-flex items-center md:pt-4">
+            <img src={post.author.image.url} width={40} height={40} class="border-2 border-white rounded-full mr-4" alt={post.author.name} />
+            <p class="flex flex-col font-normal text-lg">
+                
+                {post.author.name} <br/> 
+                
+                <span class="font-mono text-fg-muted text-xs">
+                     {post.author.position}
+                    </span>
+                    
+                    </p>
+        </div>
+        <h3 class="text-2xl w-full text-opacity-70 text-black">{post.description}</h3>
+
+    </div>
+
+    <img src={post.image.url} height={300} width={600} alt={post.title} class="aspect-video object-cover mx-auto rounded-xl shadow-xl mb-10 motion-preset-slide-up-sm motion-delay-100 w-full max-w-screen-md">
+    
+    <div class="max-w-screen-sm text-left w-full prose-li:marker:text-primary  mx-auto prose motion-preset-fade motion-delay-300">
+        <PortableText value={post.body}/>
+        <span class="text-sm font-mono text-fg-muted font-normal">Publicado el {new Date(post.publishedAt).toLocaleDateString("es-ar", {dateStyle: 'long'})}</span>
+    </div>
+
+    {post.tags && post.tags.length > 0 && (
+        <div class=" border-t border-dashed border-primary/20 w-full mt-10 pt-10 mx-auto max-w-screen-sm flex flex-col justify-start items-start">
+            <h4 class="text-lg text-center mb-2 font-medium">Tags</h4>
+            <ul class="flex flex-wrap gap-2 justify-start">
+                {post.tags.map((tag: string) => (
+                    <li class="[&:not(:last-child)]:after:content-[','] inline-block text-sm hover:underline font-mono text-primary ">
+                        <a href={`/blog?tag=${tag}`}>{tag}</a></li>
+                ))}
+            </ul>
+        </div>
+    )}
+</Layout>
